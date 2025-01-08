@@ -1,12 +1,24 @@
-<div class="container-fluid">
+<div class="container-fluid m-0 p-0">
  <div class="header">
-    <button class="btn btn-success">button</button>
-    
+<div class="row p-3">
+<ul class="p-3 list-group list-unstyled list-group-horizontal d-flex">
+   <li class="d-flex flex-grow-1">
+      {{headerList[0].name}}
+    </li>
+   <li class="d-flex p-2" *ngFor="let x of headerList.slice(1)">
+      {{x.name}}
+   </li>
+</ul>   
+</div>
+    layout works!!
  </div>
-<div class="">
-<router-outlet></router-outlet>   
+ <div class="">
+<button class="btn btn-success" routerLink="/products">products</button>
+<button class="btn btn-success" routerLink="/categories">categories</button>
+ </div>
+<div class=""> 
 </div>    
 <div class="footer">
-
+hi
 </div>
 </div>
