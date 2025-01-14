@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container-fluid vh-100 d-flex align-items-center">
+    <form class="w-25 mx-auto form p-4" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <h1 class="mb-4 text-center"> Login</h1>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="userName" [(ngModel)]="form.userName">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password">
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+</div>

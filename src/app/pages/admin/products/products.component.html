@@ -1,0 +1,91 @@
+<div class="container-fluid">
+<div class="row">
+ <div  [ngClass]="isexpandSide ?'col-8':'col-12'">
+    <div class="card">
+    <div class="card-header">
+<div class="row">
+    <div class="col-6">
+        Product List
+    </div>
+    <div class="col-6 text-end">
+        <button class="btn btn-primary" (click)="new()">New</button>
+    </div>
+</div>
+    </div>
+    <div class="card-body"></div>
+    </div>
+ </div> 
+ <div class="col-4" *ngIf="isexpandSide">
+    <div class="card">
+        <div class="card-header ">
+            <div class="row">
+                <div class="col-6">
+                  New Product  
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-primary" (click)="close()">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="productsForm">
+            <div class="row">
+                <div class="col-6">
+                    <label for="productSku" class="form-label">SKU</label>
+                    <input type="text"  class="form-control" formControlName="productSku" >
+                </div>
+                <div class="col-6">
+                    <label for="productName" class="form-label">productName</label>
+                    <input type="text"  class="form-control" formControlName="productName" >
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="productShortName" class="form-label">productShortName</label>
+                        <input type="text"  class="form-control" formControlName="productShortName" >
+                    </div>
+                    <div class="col-6">
+                        <label for="productPrice" class="form-label">productPrice</label>
+                        <input type="number"  class="form-control" formControlName="productPrice" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 dropup-auto">
+                        <label for="categoryId" class="form-label">categoryId</label>
+                        <select class="form-select"  formControlName="categoryId">
+                            <option *ngFor="let x of categories" 
+                             [value]="x.categoryId">{{x.categoryName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="deliveryTimeSpan" class="form-label">deliveryTimeSpan</label>
+                        <input type="text"  class="form-control" formControlName="deliveryTimeSpan" >
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-12">
+                    <label for="productImageUrl" class="form-label">productImageUrl</label>
+                    <input type="text"  class="form-control" formControlName="productImageUrl" >
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-12">
+                    <label for="productDescription" class="form-label">productDescription</label>
+                    <textarea rows="4" formControlName="productDescription" class="form-control"></textarea>
+                </div>
+                </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-success" (click)="reset()">Reset</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success" (click)="onSave()">Create Product</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        </div>
+ </div>  
+</div>    
+</div>
