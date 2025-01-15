@@ -16,6 +16,7 @@ isexpandSide:boolean=false;
 customServ=inject(CustomService);
 products:Products[]=[];
 categories:Category[]=[];
+productFormObj:Products=new Products();
 productsForm:FormGroup=new FormGroup({});
 ngOnInit(): void {
   this.getProducts();
@@ -27,7 +28,7 @@ this.productsForm=new FormGroup({
     productPrice:  new FormControl(0),
     productShortName: new FormControl(''),
     productDescription:new FormControl(''),
-    createdDate:     new FormControl(new Date()),
+    createdDate:    new FormControl(new Date().toISOString()),
     deliveryTimeSpan:new FormControl(''),
     categoryId:     new FormControl(0),
     productImageUrl:new FormControl(''),
@@ -46,17 +47,36 @@ getCategory(){
   })
 }
 onSave(){
-  console.log(this.productsForm.value);
+const formData=this.productsForm.value;
+formData.productId=formData.productId || 0;
+formData.createdDate=new Date(formData.createdDate || new Date()).toISOString();
 this.customServ.createProduct(this.productsForm.value).subscribe((res:APIRESPONSE)=>{
   if(res.result){
     alert('saved successfully');
+    this.getProducts();
   }else{
     alert('Something wrong try later');
   }
 })
 }
+onEdit(x:any){
+this.isexpandSide=true;
+this.productsForm.patchValue({
+  productId: x.productId,
+  productSku: x.productSku,
+  productName: x.productName,
+  productPrice: x.productPrice,
+  productShortName: x.productShortName,
+  productDescription:x.productDescription,
+  createdDate:   x.createdDate,
+  deliveryTimeSpan:x.deliveryTimeSpan,
+  categoryId:   x.categoryId,
+  productImageUrl:x.productImageUrl,
+  categoryName: x.categoryName
+})
+}
 reset(){
-
+this.productsForm.reset();
 }
 new(){
 this.isexpandSide=true;

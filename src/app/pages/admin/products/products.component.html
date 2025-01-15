@@ -12,7 +12,20 @@
     </div>
 </div>
     </div>
-    <div class="card-body"></div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3" *ngFor="let x of products">
+            <div class="card" >
+                <img [src]="x.productImageUrl" style="height:12rem" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{x.productName}}</h5>
+                  <p class="card-text">{{x.categoryName}}</p>
+                  <a class="btn btn-primary" (click)="onEdit(x)">Edit</a>
+                </div>
+              </div>
+        </div>
+      </div>  
+    </div>
     </div>
  </div> 
  <div class="col-4" *ngIf="isexpandSide">
