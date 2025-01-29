@@ -43,7 +43,7 @@ getProducts(){
 filterCategoryById() {
   if (this.products.length > 0) {
     this.resultCategoryData = this.products.filter(
-      (product) => product.categoryId ===  Number(this.activatedCategoryId)
+      (x) => x.categoryId ===  Number(this.activatedCategoryId)
     );
     console.log(this.resultCategoryData, 'Filtered Products');
   } else {
