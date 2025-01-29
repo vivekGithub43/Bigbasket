@@ -1,0 +1,68 @@
+header{
+    padding:0px 45px;
+    background: #002d18; 
+    color:white;
+}
+.search{
+    border-radius: 0px;
+    width:400px;
+    
+}
+img{
+    width:30px;
+    height:30px
+}
+.arrow {
+    display: none;
+    width: 16px;
+    position:absolute;
+    right: -15px;
+  }
+  .bi-chevron-down{
+    font-size:10px;
+}
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 stroke-linecap%3D%27round%27 stroke-miterlimit%3D%2710%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+}
+.categorieslist:hover .arrow {
+    display: block;
+  }
+  .arrow i {
+    font-size: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .categorieslist {
+    position: relative;
+    padding-right: 20px;
+  }
+  .maindisplay{
+    color:#002d18;
+  }
+  @media (min-width: 1200px) {
+ .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        transition: .5s;
+        opacity: 0;
+    }
+}
+
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-primary);
+}
+
+ .nav-item:hover .dropdown-menu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    background: var(--bs-light) !important;
+    border-radius: 10px !important;
+    transition: .5s;
+    opacity: 1;
+}

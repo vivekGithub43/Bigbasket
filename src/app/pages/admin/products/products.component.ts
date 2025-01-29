@@ -50,7 +50,7 @@ onSave(){
 const formData=this.productsForm.value;
 formData.productId=formData.productId || 0;
 formData.createdDate=new Date(formData.createdDate || new Date()).toISOString();
-this.customServ.createProduct(this.productsForm.value).subscribe((res:APIRESPONSE)=>{
+this.customServ.createProduct(formData).subscribe((res:APIRESPONSE)=>{
   if(res.result){
     alert('saved successfully');
     this.getProducts();
@@ -59,8 +59,17 @@ this.customServ.createProduct(this.productsForm.value).subscribe((res:APIRESPONS
   }
 })
 }
+updateProduct(){
+  this.customServ.updateProduct(this.productsForm.value).subscribe((res:APIRESPONSE)=>{
+if(res.result){
+  alert('update succesfull');
+  this.getProducts();
+}
+  })
+}
 onEdit(x:any){
 this.isexpandSide=true;
+this.productFormObj=x;
 this.productsForm.patchValue({
   productId: x.productId,
   productSku: x.productSku,
@@ -75,11 +84,24 @@ this.productsForm.patchValue({
   categoryName: x.categoryName
 })
 }
+onDelete(x:any){
+  this.customServ.DeleteProduct(x).subscribe((res)=>{
+    if(res.result){
+      alert(res.message || 'delete successfull');
+      this.getProducts();
+    }else{
+      alert(res.message)
+    }
+  })
+}
 reset(){
 this.productsForm.reset();
 }
 new(){
 this.isexpandSide=true;
+this.productFormObj = new Products();
+this.productsForm.reset();
+this.productsForm.patchValue({productId:0,createdDate: new Date().toISOString()});
 }
 close(){
 this.isexpandSide=false;

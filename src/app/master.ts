@@ -18,7 +18,7 @@ export class Products {
     categoryName:       string;
 
 constructor(){
-    this.productId=1
+    this.productId=0
     this.productSku='',
     this.productName='',
     this.productPrice=0,
@@ -33,6 +33,12 @@ constructor(){
 
 }
 export interface Category {
+    categoryId:       number;
+    categoryName:     string;
+    parentCategoryId: number;
+    userId:           null;
+}
+export interface CATEGORIES {
     categoryId:       number;
     categoryName:     string;
     parentCategoryId: number;

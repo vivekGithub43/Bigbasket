@@ -21,6 +21,7 @@
                   <h5 class="card-title">{{x.productName}}</h5>
                   <p class="card-text">{{x.categoryName}}</p>
                   <a class="btn btn-primary" (click)="onEdit(x)">Edit</a>
+                  <a class="btn btn-primary" (click)="onDelete(x.productId)">Delete</a>
                 </div>
               </div>
         </div>
@@ -93,7 +94,7 @@
                     <button class="btn btn-success" (click)="reset()">Reset</button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-success" (click)="onSave()">Create Product</button>
+                    <button class="btn btn-success" (click)="updateProduct()" (click)="onSave()">{{productFormObj.productId !==0?'Update':'Save'}}</button>
                 </div>
             </div>
         </form>

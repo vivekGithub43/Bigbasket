@@ -1,1 +1,21 @@
-<p>categories works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+<tr>
+    <th>Sr No.</th>
+    <th>Category Name</th>
+</tr>
+                </thead>
+                <tbody>
+<tr *ngFor="let x of categories$ | async; let i=index">
+<td>{{i+1}}</td>
+<td>{{x.categoryName}}</td>
+
+</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
