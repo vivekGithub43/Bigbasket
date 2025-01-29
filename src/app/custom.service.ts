@@ -21,5 +21,13 @@ return this.http.get<APIRESPONSE>(environment.apiUrl+apiConstants.Get_AllCategor
 createProduct(obj:any):Observable<APIRESPONSE>{
 return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Create_Product,obj)
 }
-
+updateProduct(obj:any):Observable<APIRESPONSE>{
+return this.http.put<APIRESPONSE>(environment.apiUrl+apiConstants.Update_Product,obj)
+}
+DeleteProduct(id: any): Observable<APIRESPONSE> {
+  return this.http.delete<APIRESPONSE>(`${environment.apiUrl}${apiConstants.Delete_Product}${id}`);
+}
+GetAllSaleByCustomerId(id: number): Observable<APIRESPONSE> {
+  return this.http.get<APIRESPONSE>(`${environment.apiUrl}${apiConstants.Get_AllSaleByCustomerId}${id}`);
+}
 }
