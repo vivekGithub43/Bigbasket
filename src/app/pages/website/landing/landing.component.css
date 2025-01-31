@@ -66,3 +66,13 @@ img{
     transition: .5s;
     opacity: 1;
 }
+.loginDropdownMenu {
+  position:absolute;
+  left:-130px;
+}
+.regDiv {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+

@@ -1,0 +1,18 @@
+.incDecBtn {
+    background-color: #00dbdb;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900 !important;
+  }
+  
+  .incDecBtn:focus {
+    background-color: #81C408;
+    color: #fff;
+  }
+  .customIncDecInput {
+    text-align: center;
+    width: 30% !important;
+    border: none;
+    outline: none !important;
+    color: gray;
+  }

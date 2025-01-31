@@ -27,8 +27,25 @@
        <i class="bi bi-amazon p-2"></i>
        <i class="bi bi-amd p-2"></i>
        <i class="bi bi-android p-2"></i>
-       <i class="bi bi-apple p-2"></i>
-       <i class="bi bi-award p-2"></i>
+       
+    
+    <li class="nav-item dropdown list-unstyled pt-2">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle  "></i>
+        </a>
+        <ul class="dropdown-menu loginDropdownMenu">
+          <li >
+            <div class="text-center">
+                <a ><button class="btn btn-success w-75 loginBtn rounded-2 "
+                    data-bs-toggle="modal" data-bs-target="#LoginModel"  >Login</button></a>
+                <div class="regDiv">
+                  <span>New customer? </span><a class="registerLink"
+                   (click)="openModel()">Start here.</a>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </li>
      <!-- <span>{{countpagesSubject}}</span> -->
    </div>
    
@@ -40,3 +57,52 @@
    </header>
    
 <router-outlet></router-outlet>
+
+
+<!--Register model-->
+  <div class="row">
+    <div class="col-md-12">
+      <form #profileFrm="ngForm">  
+<p-dialog header="Register" [modal]="true" [(visible)]="displayRegisterModel" [style]="{width: '50vw'}"
+[breakpoints]="{'960px': '75vw', '640px': '95vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <div class="row">
+        <div class="col-12 my-3">
+            <div class="input-group">
+                <span class="input-group-text ">Name and MobileNo</span>
+                <input type="text" [(ngModel)]="registerFormObj.Name" #Name="ngModel" name="Name" class="form-control">
+                <input type="text" [(ngModel)]="registerFormObj.MobileNo" #MobileNo="ngModel" name="MobileNo" class="form-control">
+              </div>
+        </div>  
+     </div>
+     <div class="row">
+        <div class="col-9 my-3">
+            <div class="input-group ">
+                <span class="input-group-text " >Password</span>
+                <input type="text" class="form-control" [(ngModel)]="registerFormObj.Password" #Password="ngModel" name="Password">
+              </div>
+          </div> 
+          <div class="col-3 text-end my-3">
+            <button class="btn btn-success">Register</button>
+          </div>  
+     </div>
+</p-dialog>
+</form>
+</div>
+</div>
+
+
+<p-button (click)="showDialog()" label="Show" />
+<p-dialog header="Edit Profile" [modal]="true" [(visible)]="showDailouge" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary block mb-8">Update your information.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Username</label>
+        <input pInputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+        <label for="email" class="font-semibold w-24">Email</label>
+        <input pInputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-end gap-2">
+       
+    </div>
+</p-dialog>

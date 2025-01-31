@@ -16,6 +16,7 @@ export class Products {
     categoryId:         number;
     productImageUrl:    string;
     categoryName:       string;
+    quantity:number;
 
 constructor(){
     this.productId=0
@@ -28,7 +29,8 @@ constructor(){
     this.deliveryTimeSpan='',
     this.categoryId=0,
     this.productImageUrl='',
-    this.categoryName='' 
+    this.categoryName='' ,
+    this.quantity=1
 }   
 
 }
@@ -44,3 +46,16 @@ export interface CATEGORIES {
     parentCategoryId: number;
     userId:           null;
 }
+export class registerObject {
+    CustId: number;
+    Name: string;
+    MobileNo: string;
+    Password: string;
+  
+    constructor() {
+      this.CustId = 0;
+      this.Name = '';
+      this.MobileNo = '';
+      this.Password = '';
+    }
+  }
