@@ -47,7 +47,7 @@ filterCategoryById() {
     );
     console.log(this.resultCategoryData, 'Filtered Products');
   } else {
-    console.warn('Products array is empty, skipping filter');
+    console.warn('Products array is empty');
   }
 }
 }

@@ -21,7 +21,12 @@
                     <i class="fas fa-star"></i>
                 </div>  
                   <h4 class="mb-3">{{x.productPrice}}</h4>
-                  <a href="" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Add to cart</a>
+                  <div class="input-group mb-3">
+                    <button class="btn incDecBtn" type="button" (click)="decrement(x)" >-</button>
+                    <input type="text" class="customIncDecInput" [value]="x.quantity" readonly>
+                    <button class="btn incDecBtn" type="button" (click)="increment(x)">+</button>
+                  </div>
+                  <a (click)="addToCart(x)" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Add to cart</a>
                 </div>
             </div>
         </div>

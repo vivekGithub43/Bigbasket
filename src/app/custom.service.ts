@@ -30,4 +30,13 @@ DeleteProduct(id: any): Observable<APIRESPONSE> {
 GetAllSaleByCustomerId(id: number): Observable<APIRESPONSE> {
   return this.http.get<APIRESPONSE>(`${environment.apiUrl}${apiConstants.Get_AllSaleByCustomerId}${id}`);
 }
+AddToCart(obj:any):Observable<APIRESPONSE>{
+return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Add_ToCart,obj)
+}
+RegisterCustomer(obj:any):Observable<APIRESPONSE>{
+return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Register_Customer,obj)  
+}
+Login(obj:any):Observable<APIRESPONSE>{
+return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Login_,obj)
+}
 }

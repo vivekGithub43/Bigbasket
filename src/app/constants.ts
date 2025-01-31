@@ -4,5 +4,8 @@ export const apiConstants={
     Create_Product:'CreateProduct',
     Update_Product:'UpdateProduct',
     Delete_Product:'DeleteProductById?id=',
-    Get_AllSaleByCustomerId:'GetAllSaleByCustomerId?id='
+    Get_AllSaleByCustomerId:'GetAllSaleByCustomerId?id=',
+    Add_ToCart:'AddToCart',
+    Register_Customer:'RegisterCustomer',
+    Login_:'Login'
 }
