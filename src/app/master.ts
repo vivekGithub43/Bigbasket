@@ -59,3 +59,18 @@ export class registerObject {
       this.Password = '';
     }
   }
+export class LoginFormObj {
+    UserName:string;
+    UserPassword:string;
+
+    constructor(){
+        this.UserName='';
+        this.UserPassword='';
+    }
+}  
+export interface loggedinCustomer{
+custId?:0;
+mobileNo?:'number';
+name?:'string';
+password?:'string';
+}

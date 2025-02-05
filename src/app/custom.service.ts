@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { APIRESPONSE } from './master';
 import { environment } from '../environments/environment.development';
 import { apiConstants } from './constants';
@@ -11,6 +11,7 @@ import { apiConstants } from './constants';
 export class CustomService {
 
 constructor(private http : HttpClient) { }
+public cartUpdated$:Subject<boolean>=new Subject();
 
 getAllProducts():Observable<APIRESPONSE>{
 return this.http.get<APIRESPONSE>(environment.apiUrl+apiConstants.Get_AllProducts)
@@ -39,4 +40,11 @@ return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Register_Cust
 Login(obj:any):Observable<APIRESPONSE>{
 return this.http.post<APIRESPONSE>(environment.apiUrl+apiConstants.Login_,obj)
 }
+USER_TOKEN_LOGIN(obj:any){
+  return this.http.post(environment.API_END_POINT_USER+apiConstants.USER_TOKEN_LOGIN,obj)
+}
+GetCartProducts_ByCustomerId(custId:number):Observable<APIRESPONSE>{
+  return this.http.get<APIRESPONSE>(environment.apiUrl+apiConstants.GetCartProducts_ByCustomerId+custId)
+}
+
 }

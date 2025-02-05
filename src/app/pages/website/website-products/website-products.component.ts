@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { APIRESPONSE, Products } from '../../../master';
+import { APIRESPONSE, loggedinCustomer, Products } from '../../../master';
 import { CustomService } from '../../../custom.service';
 
 @Component({
@@ -14,13 +14,19 @@ export class WebsiteProductsComponent implements OnInit{
 products:Products[]=[];
   quantity: Products = new Products;
 customServ=inject(CustomService);
+loggedinCustomer:loggedinCustomer={};
 ngOnInit(): void {
   this.getProducts();
 };
 addToCart(x:Products){
+  const Login_cust = sessionStorage.getItem('logged_Customer');
+    console.log('Stored logged_Customer:', Login_cust);
+  if(Login_cust !==null){
+this.loggedinCustomer=JSON.parse(Login_cust);
+  
   const addtocartObj={
     "CartId":0,
-  "CustId": 2147,
+  "CustId": this.loggedinCustomer.custId,
   "ProductId": x.productId,
   "Quantity": x.quantity,
   "AddedDate":new Date()
@@ -29,10 +35,12 @@ addToCart(x:Products){
 if(res.result){
 confirm(res.message);
 console.log(res.message,'added');
+this.customServ.cartUpdated$.next(true);
 }else{
   res.message
 }
-  })
+  });
+}
 };
 getProducts(){
     this.customServ.getAllProducts().subscribe((res:APIRESPONSE)=>{

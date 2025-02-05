@@ -7,5 +7,7 @@ export const apiConstants={
     Get_AllSaleByCustomerId:'GetAllSaleByCustomerId?id=',
     Add_ToCart:'AddToCart',
     Register_Customer:'RegisterCustomer',
-    Login_:'Login'
+    Login_:'Login',
+    USER_TOKEN_LOGIN: 'Login',
+    GetCartProducts_ByCustomerId:'GetCartProductsByCustomerId?id='
 }
